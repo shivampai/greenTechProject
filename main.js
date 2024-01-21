@@ -24,13 +24,13 @@ function load() {
   loadWaterReq()
 }
 function loadWaterReq() {
-  firebase.database().ref('smartFarm/water').once('value', (snapshot) => {
-    data = snapshot.val()
-    dailyReqmL = data.req;
-    dailyReqTime = data.time;
-    document.getElementById('pump-req-vol').innerHTML = dailyReqmL;
-    document.getElementById('pump-req-time').innerHTML = dailyReqTime;
-  })
+  // firebase.database().ref('smartFarm/water').once('value', (snapshot) => {
+  //   data = snapshot.val()
+  //   dailyReqmL = data.req;
+  //   dailyReqTime = data.time;
+  //   document.getElementById('pump-req-vol').innerHTML = dailyReqmL;
+  //   document.getElementById('pump-req-time').innerHTML = dailyReqTime;
+  // })
 }
 function loginWithEmail() {
   email_elem = document.getElementById('login-emailid')
@@ -165,22 +165,22 @@ function setPumpMotorState(state) {
   firebase.database().ref('/smartFarm/pump/state').set(state)
 }
 function sensorData() {
-  firebase.database().ref('/smartFarm/sensor').on('value', (snapshot) => {
-    const data = snapshot.val();
-    if (data) {
-      dht11 = data.dht11;
-      sms = data.sms;
-      hum = dht11.hum
-      temp = dht11.temp
-      moisture = sms.moisture
-      document.getElementById('pump-soil-moisture').innerHTML = moisture;
-      document.getElementById('sensors-hum').innerHTML = hum
-      document.getElementById('sensors-temp').innerHTML = temp
-      document.getElementById('sensors-moisture').innerHTML = moisture
-    } else {
-      Swal.fire({ title: 'Sensor Data Error!!!' })
-    }
-  })
+//   firebase.database().ref('/smartFarm/sensor').on('value', (snapshot) => {
+//     const data = snapshot.val();
+//     if (data) {
+//       dht11 = data.dht11;
+//       sms = data.sms;
+//       hum = dht11.hum
+//       temp = dht11.temp
+//       moisture = sms.moisture
+//       document.getElementById('pump-soil-moisture').innerHTML = moisture;
+//       document.getElementById('sensors-hum').innerHTML = hum
+//       document.getElementById('sensors-temp').innerHTML = temp
+//       document.getElementById('sensors-moisture').innerHTML = moisture
+//     } else {
+//       Swal.fire({ title: 'Sensor Data Error!!!' })
+//     }
+//   })
 }
 // function speakloud() {
 //   all_text_elems = document.querySelectorAll('a, span, label, button,h1,h2,h3,h4,h5,h5.div')
